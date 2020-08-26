@@ -83,7 +83,7 @@ function Equipe({ equipe }) {
         <MembrosContainerStyled>
           {equipe.membros.map((membro) => {
             return (
-              <MembroStyled>
+              <MembroStyled key={membro.id}>
                 <div>
                   <img
                     alt={`Foto do(a) ${membro.nome} membro da equipe`}

@@ -16,7 +16,7 @@ function Rodape({ rodape }) {
           <ul>
             {rodape.RedesSociais.map((rede) => {
               return (
-                <li>
+                <li key={rede.id}>
                   <a href={rede.perfil}>
                     <img src={rede.icone.url} />
                   </a>

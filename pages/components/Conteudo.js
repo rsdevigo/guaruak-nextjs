@@ -135,6 +135,7 @@ function Conteudo({ conteudo }) {
 
   const constroiSecao = (secao) => (
     <div
+      key={secao.id}
       className={secao.identificacao}
       style={
         (secao.fundo && {
