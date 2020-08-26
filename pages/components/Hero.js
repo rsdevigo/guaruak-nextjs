@@ -58,7 +58,7 @@ function Hero({ hero }) {
   return (
     <HeroStyled>
       <ReactMarkdown source={hero.texto} />
-      <Button href="/dicionario" className="button">{hero.acao}</Button>
+      <Button href={hero.acao.url} className={hero.acao.estilo}>{hero.acao.label}</Button>
     </HeroStyled>
   )
 }
