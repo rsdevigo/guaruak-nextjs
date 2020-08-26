@@ -2,7 +2,7 @@ const theme = {
     colors: {
       verde: "#527A05",
       amarelo: "#FFC43E",
-      laranja: "#ffc43e"
+      laranja: "#FFC43E"
     },
     spacing: {
       containerSize: "80%",
