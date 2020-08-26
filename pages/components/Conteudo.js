@@ -7,7 +7,7 @@ function Conteudo({ conteudo }) {
   const theme = useTheme();
 
   const ConteudoStyled = styled.div`
-    display: grid;    
+    display: grid;
 
     .extincao-linguas {
       background: var(--fundo-extincao-linguas) no-repeat 50%;
@@ -16,32 +16,36 @@ function Conteudo({ conteudo }) {
       grid-area: extincao-linguas;
       height: 350px;
       justify-content: center;
-      padding: 0 10vw;  
+      padding: 0 10vw;
 
-      p{
-        strong{
+      p {
+        strong {
           font-size: 3rem;
         }
 
-        em{
+        em {
           color: ${theme.colors.verde};
           font-style: normal;
           font-weight: bold;
         }
       }
     }
-  
+
     .extincao-linguas p {
       font-size: 2rem;
       text-align: center;
     }
 
     .falantes {
-      background: linear-gradient(90deg, rgba(0,0,0,1) 0% , rgba(0,0,0,0) 40%),
-                  var(--fundo-falantes) no-repeat no-repeat 75% 10px fixed;
+      background: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 1) 0%,
+          rgba(0, 0, 0, 0) 40%
+        ),
+        var(--fundo-falantes) no-repeat no-repeat 75% 10px fixed;
       background-size: 280%;
       background-attachment: fixed;
-      grid-area: falantes; 
+      grid-area: falantes;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
@@ -59,13 +63,18 @@ function Conteudo({ conteudo }) {
       width: 40%;
     }
 
-    .historia{ grid-area: historia; }
-    .essencia{ grid-area: essencia; }
+    .historia {
+      grid-area: historia;
+    }
+    .essencia {
+      grid-area: essencia;
+    }
 
     .historia,
-    .essencia{
+    .essencia {
       padding: 10vw;
       position: relative;
+      background-color: #f5f5f5;
     }
 
     .historia h1::before,
@@ -91,42 +100,51 @@ function Conteudo({ conteudo }) {
     }
 
     .essencia p,
-    .historia p{
+    .historia p {
       font-size: 1rem !important;
       line-height: 1.5;
-      text-align: left;    
+      text-align: left;
     }
 
     .essencia h1,
-    .historia h1{
+    .historia h1 {
       font-size: 0.75rem;
       font-weight: 900;
       text-transform: uppercase;
-    }  
+      padding-left: 1rem;
+    }
 
     .essencia h2,
     .historia h2 {
       color: ${theme.colors.laranja};
-      font-size: 2.5rem;
+      font-size: 2.3rem;
       font-weight: 900;
       text-transform: uppercase;
-    } 
+      padding-left: 1rem;
+    }
 
-    @media screen and (min-width: 600px){
-      grid-template-areas: "extincao-linguas extincao-linguas"
-                           "falantes falantes" 
-                           "historia essencia";
+    @media screen and (min-width: 600px) {
+      grid-template-areas:
+        "extincao-linguas extincao-linguas"
+        "falantes falantes"
+        "historia essencia";
       grid-template-rows: auto auto auto;
       grid-template-columns: 1fr 1fr;
     }
   `;
 
-  const constroiSecao = secao => (
-    <div className={secao.identificacao} style={ 
-      (secao.fundo && { [`--fundo-${secao.identificacao}`]:`url(${secao.fundo.url}`}) || 
-      (secao.icone && { [`--icone-${secao.identificacao}`]:`url(${secao.icone.url}`} )
-    }>
-
+  const constroiSecao = (secao) => (
+    <div
+      className={secao.identificacao}
+      style={
+        (secao.fundo && {
+          [`--fundo-${secao.identificacao}`]: `url(${secao.fundo.url}`,
+        }) ||
+        (secao.icone && {
+          [`--icone-${secao.identificacao}`]: `url(${secao.icone.url}`,
+        })
+      }
+    >
       {secao.titulo && <h1>{secao.titulo}</h1>}
       {secao.subtitulo && <h2>{secao.subtitulo}</h2>}
       <ReactMarkdown source={secao.texto} />
